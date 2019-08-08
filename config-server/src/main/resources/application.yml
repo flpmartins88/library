@@ -1,0 +1,13 @@
+
+server:
+  port: 8888
+
+spring:
+  config:
+    name: library-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/flpmartins88/library-config-dev.git
+
