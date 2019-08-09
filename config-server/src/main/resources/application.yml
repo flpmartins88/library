@@ -10,4 +10,4 @@ spring:
       server:
         git:
           uri: https://github.com/flpmartins88/library-config-dev.git
-
+          clone-on-start: true
