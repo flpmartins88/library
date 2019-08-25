@@ -1,10 +1,11 @@
 package com.library.sampleservice;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import org.springframework.http.MediaType;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.stream.Collectors;
 
@@ -19,11 +20,18 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity salvar(@RequestBody TaskDTO task) {
+    public ResponseEntity salvar(@Valid @RequestBody TaskDTO task) {
         Task savedTask = taskRepository.save(task.toTask());
         return ResponseEntity.created(
                 URI.create("/task/" + savedTask.getId())
         ).body(savedTask);
+    }
+
+    @GetMapping
+    public ResponseEntity obterTodos(Pageable page) {
+        return ResponseEntity.ok(
+                taskRepository.findAll(page)
+        );
     }
 
     @GetMapping(path = {"/{id}"})
