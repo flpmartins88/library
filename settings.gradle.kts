@@ -9,4 +9,4 @@
 
 rootProject.name = "library"
 
-include("book-service", "config-server", "user-service")
+include("book-service", "config-server", "user-service", "sample-service")
