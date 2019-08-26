@@ -5,7 +5,6 @@ import kotlinx.coroutines.launch
 import org.apache.kafka.clients.consumer.ConsumerConfig
 import org.apache.kafka.clients.consumer.KafkaConsumer
 import org.apache.kafka.common.serialization.StringDeserializer
-import org.slf4j.LoggerFactory
 import java.time.Duration
 import java.util.Properties
 import java.util.UUID
@@ -36,7 +35,6 @@ class Consumer(bootstrapServers: String, topic: String) {
         }
     }
 }
-
 
 class KafkaDSL(private val bootstrapServers: String) {
 

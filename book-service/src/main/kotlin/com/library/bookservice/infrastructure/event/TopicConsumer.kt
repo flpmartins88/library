@@ -4,20 +4,18 @@ import org.slf4j.LoggerFactory
 
 class TopicConsumer {
 
-    fun consumeTopic() {
-        val log = LoggerFactory.getLogger(TopicConsumer::class.java)
+    private val logger = LoggerFactory.getLogger(TopicConsumer::class.java)
 
-        kafka("meme") {
-            // Corpo da func kafkaDSL.Init
 
-            consumer("xd") {
-                // Corpo da func Consumer.doConsume
+    fun consumeTopic() =
+            kafka("meme") {
+                // Corpo da func kafkaDSL.Init
+                consumer("xd") {
+                    // Corpo da func Consumer.doConsume
+                    consume {
 
-                consume {
-
+                    }
                 }
             }
-        }
-    }
-
 }
+

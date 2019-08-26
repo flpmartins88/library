@@ -15,6 +15,11 @@ plugins {
 apply plugin: 'io.spring.dependency-management'
 apply plugin: 'kotlin'
 
+
+bootJar {
+    mainClassName = 'com.library.bookservice.BookServiceApplicationKt'
+}
+
 group = 'com.library'
 version = '1.0.0'
 sourceCompatibility = '11'
